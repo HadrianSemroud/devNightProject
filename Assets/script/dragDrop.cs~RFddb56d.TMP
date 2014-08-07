@@ -1,0 +1,29 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class dragDrop : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        onDragMouse();
+	}
+
+    void onDragMouse()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(camera.ScreenToWorldPoint(Input.mousePosition).x,
+            camera.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero);
+            if (hit.collider.gameObject.tag == "grappe")
+            {
+                Debug.Log("ok ma couille");
+            }
+            else return;
+        }
+    }
+}
